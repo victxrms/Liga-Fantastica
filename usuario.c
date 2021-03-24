@@ -10,6 +10,7 @@ int reg;
 int main (){
   printf ("Bienvenido a la Liga Fantastica\n");
   printf ("%s", SEPARADOR);
+  printf ("Hola mundo")
   do{
     printf ("Iniciar sesion (1) | Registrarse (2)\n");
     scanf ("%d", &reg);

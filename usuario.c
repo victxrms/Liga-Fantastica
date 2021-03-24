@@ -16,7 +16,7 @@ int main (void){
 
   char userinp, contrinp, userarch, contrarch, currentline [100];
 
-  FILE* fp;
+  FILE*fp = fopen ("usuarios.txt", "r");
 
   assert(fp != NULL);
 

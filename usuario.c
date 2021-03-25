@@ -28,7 +28,7 @@ int main (void){
                 scanf ("%d", &reg);
         } while(reg!=1 & reg !=2);
 
-        if (reg=1) {
+        if (reg==1) {
 
             printf ("Introduce tu usuario: ");                     // Introduce usuario y comprueba si existe, si es asi introduce contraseña y comprueba contraseña.
             scanf ("%s", &userinp);                                // Si alguno de los dos es erroneo muestra mensaje de fallo

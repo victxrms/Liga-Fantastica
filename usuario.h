@@ -4,4 +4,4 @@ typedef struct{
 	char perfil_usuario[15];
 	char usuario[6];
 	char contrasena[9];
-}usuario;
+}usuario[99];

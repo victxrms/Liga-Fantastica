@@ -1,6 +1,6 @@
-precio mínimo-50
-precio máximo-120
-
-Nº_maximo_jugadores_equipo-11
+precio_mínimo-50
+precio_máximo-120
 
 Nº_maximo_plantillas-3
+
+Nº_maximo_jugadores_equipo-11

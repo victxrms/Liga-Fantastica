@@ -9,15 +9,6 @@
 
 
 int main(){
-<<<<<<< HEAD
-        int reg, i=1, val1, val2, user=0, con;
-
-        usuario usuario_tot[99];
-
-        char userinp[9], contrinp[9], usertemp [9];
-
-        printf ("\t\t   Bienvenido a la Liga Fantastica\n");            // Printea el titulo
-=======
         int reg, regyes, i=1, j=1, val1, val2, valreg1, valreg2, user=0, ntotal;
 
         usuario usuario_tot[99];
@@ -25,7 +16,6 @@ int main(){
         char userinp[9], contrinp[9], usertemp[9], newuser[9], newcontr[9];
 
         printf ("\t\t   Bienvenido a la Liga Fantastica\n");                    // Printea el titulo
->>>>>>> 4e5de386a0cdf9708203a18ac18effdd3a9da402
         printf ("\t\t------------------------------------\n");
 
         do{
@@ -35,27 +25,6 @@ int main(){
 
         if (reg==1) {
 
-<<<<<<< HEAD
-            printf ("Introduce tu usuario: ");
-            scanf ("%s", &userinp);
-            do {
-              strcpy (usertemp, usuario_tot[i].usuario);
-              val1 = strcmp(userinp, usertemp);
-              i++;
-            }while (val1 != 0);
-
-            if (val1==1){
-
-              printf ("Introduce tu contraseña: \n");
-              scanf ("%s", &contrinp);
-                val2 = strcmp(contrinp, usuario_tot[i].contrasena);
-                  if (val2 == 1)
-                    printf ("Inicio de sesion correcto\n");
-                  else ("La contraseña es incorrecta\n");
-
-            }else printf ("El usuario no existe\n");
-}
-=======
                 printf ("Introduce tu usuario: ");
                 scanf ("%s", &userinp);
                 do {
@@ -101,5 +70,4 @@ int main(){
 
         }
 
->>>>>>> 4e5de386a0cdf9708203a18ac18effdd3a9da402
 }

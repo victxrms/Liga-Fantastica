@@ -9,6 +9,7 @@
 
 
 int main(){
+
         int reg, regyes, i=1, j=1, val1, val2, valreg1, valreg2, user=0, ntotal;
 
         usuario usuario_tot[99];

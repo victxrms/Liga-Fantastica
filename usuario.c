@@ -9,11 +9,11 @@
 
 
 int main(){
-        int reg, i=1, val1, val2, user=0, con;
+        int reg, regyes, i=1, j=1, val1, val2, valreg1, valreg2, user=0, ntotal;
 
         usuario usuario_tot[99];
 
-        char userinp[9], contrinp[9], usertemp [9];
+        char userinp[9], contrinp[9], usertemp[9], newuser[9], newcontr[9];
 
         printf ("\t\t   Bienvenido a la Liga Fantastica\n");            // Printea el titulo
         printf ("\t\t------------------------------------\n");
@@ -25,23 +25,46 @@ int main(){
 
         if (reg==1) {
 
-            printf ("Introduce tu usuario: ");
-            scanf ("%s", &userinp);
+                printf ("Introduce tu usuario: ");
+                scanf ("%s", &userinp);
+                do {
+                        strcpy (usertemp, usuario_tot[i].usuario);
+                        val1 = strcmp(userinp, usertemp);
+                        i++;
+                }while (val1 != 0 || i<99);
+
+                if (val1==1) {
+
+                        printf ("Introduce tu contraseña: \n");
+                        scanf ("%s", &contrinp);
+                        val2 = strcmp(contrinp, usuario_tot[i].contrasena);
+                        if (val2 == 1)
+                                printf ("Inicio de sesion correcto\n");
+                        else ("La contraseña es incorrecta\n");
+
+                }else printf ("El usuario no existe\n");
+        }
+        else
+          printf ("\t\tQuieres crear una cuenta?\n");
+          printf ("\t\t    Si (1) || No (2)\n");
+          scanf ("%i", &regyes);
+          if (regyes == 1) {
+            printf("Introduce un nombre de usuario:\n");
+            scanf("%s", &newuser );
             do {
-              strcpy (usertemp, usuario_tot[i].usuario);
-              val1 = strcmp(userinp, usertemp);
-              i++;
-            }while (val1 != 0);
+                    strcpy (usertemp, usuario_tot[j].usuario);
+                    val1 = strcmp(newuser, usertemp);
+                    j++;
+            }while (valreg1 != 0 || i<99);
+            if (valreg1 == 1)
+              printf ("Este nombre de usuario ya existe\n");
+              else{
+                strcpy (newuser, usuario_tot[ntotal].usuario);
+                printf ("Usuario creado con exito\n");
+                printf("Escribe tu contraseña\n");
+                scanf("%s", &newcontr);
+                strcpy (newcontr, usuario_tot[ntotal].contrasena);
+              }
+          }
 
-            if (val1==1){
-
-              printf ("Introduce tu contraseña: \n");
-              scanf ("%s", &contrinp);
-                val2 = strcmp(contrinp, usuario_tot[i].contrasena);
-                  if (val2 == 1)
-                    printf ("Inicio de sesion correcto\n");
-                  else ("La contraseña es incorrecta\n");
-
-            }else printf ("El usuario no existe\n");
-}
 }

@@ -1,4 +1,3 @@
-
-vmosomoso 12345678 1 VictorMoreno_01
-alberto 12345678 3 AlbertoValderas_02
-carlillo 12345678 2 ElCarlillo_03
+01_VictorMoreno_3_Vmoso_12345678
+02_AlbertoValdera_1_Alberto_12345678
+03_ElCarlillo_2_Carlillo_12345678

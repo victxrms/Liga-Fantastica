@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <assert.h>
 #include "usuario.h"
 
 #define USER 1
@@ -9,16 +8,12 @@
 #define ADMIN 3
 
 
+int main(){
+        int reg, i=1, val1, val2, user=0, con;
 
-int main (void){
-        int reg, i=0, val1, val2;
+        usuario usuario_tot[99];
 
-        char userinp[9], contrinp[9], userarch[9], contrarch[9], currentline[100];
-
-        FILE *fp;
-        fp = fopen ("usuarios.txt", "r");
-
-        assert(fp != NULL);
+        char userinp[9], contrinp[9], usertemp [9];
 
         printf ("\t\t   Bienvenido a la Liga Fantastica\n");            // Printea el titulo
         printf ("\t\t------------------------------------\n");
@@ -30,24 +25,23 @@ int main (void){
 
         if (reg==1) {
 
-            printf ("Introduce tu usuario: ");                     // Introduce usuario y comprueba si existe, si es asi introduce contraseña y comprueba contraseña.
-            scanf ("%s", &userinp);                                // Si alguno de los dos es erroneo muestra mensaje de fallo
+            printf ("Introduce tu usuario: ");
+            scanf ("%s", &userinp);
             do {
-                    fscanf (fp, "%s, %s", &userarch, &contrarch);
-                    val1 = strcmp(userinp, userarch);
-                    if (val1=0) {
-                            printf ("Introduce tu contraseña: ");
-                            val2 = strcmp(contrinp, contrarch);
-                            if (val2=0) {
-                                    printf ("Inicio de sesion correcto\n");
-                            }else printf("Contraseña incorrecta");
-                    }else printf ("El usuario no existe\n");
+              strcpy (usertemp, usuario_tot[i].usuario);
+              val1 = strcmp(userinp, usertemp);
+              i++;
+            }while (val1 != 0);
 
-            }while(fgets(currentline, sizeof(currentline), fp) != NULL);
+            if (val1==1){
 
+              printf ("Introduce tu contraseña: \n");
+              scanf ("%s", &contrinp);
+                val2 = strcmp(contrinp, usuario_tot[i].contrasena);
+                  if (val2 == 1)
+                    printf ("Inicio de sesion correcto\n");
+                  else ("La contraseña es incorrecta\n");
 
-
-        }
-
-        fclose(fp);
+            }else printf ("El usuario no existe\n");
+}
 }

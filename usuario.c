@@ -15,11 +15,11 @@ int main(){
 
         char userinp[9], contrinp[9], usertemp[9], newuser[9], newcontr[9];
 
-        printf ("\t\t   Bienvenido a la Liga Fantastica\n");            // Printea el titulo
+        printf ("\t\t   Bienvenido a la Liga Fantastica\n");                    // Printea el titulo
         printf ("\t\t------------------------------------\n");
 
         do{
-                printf ("\t\tIniciar sesion (1) | Registrarse (2)\n");  // Pantalla de inicio sesion o registro hasta que se seleccione 1 o 2
+                printf ("\t\tIniciar sesion (1) | Registrarse (2)\n");          // Pantalla de inicio sesion o registro hasta que se seleccione 1 o 2
                 scanf ("%d", &reg);
         } while(reg!=1 & reg !=2);
 
@@ -45,26 +45,29 @@ int main(){
                 }else printf ("El usuario no existe\n");
         }
         else
-          printf ("\t\tQuieres crear una cuenta?\n");
-          printf ("\t\t    Si (1) || No (2)\n");
-          scanf ("%i", &regyes);
-          if (regyes == 1) {
-            printf("Introduce un nombre de usuario:\n");
-            scanf("%s", &newuser );
-            do {
-                    strcpy (usertemp, usuario_tot[j].usuario);
-                    val1 = strcmp(newuser, usertemp);
-                    j++;
-            }while (valreg1 != 0 || i<99);
-            if (valreg1 == 1)
-              printf ("Este nombre de usuario ya existe\n");
-              else{
-                strcpy (newuser, usuario_tot[ntotal].usuario);
-                printf ("Usuario creado con exito\n");
-                printf("Escribe tu contraseña\n");
-                scanf("%s", &newcontr);
-                strcpy (newcontr, usuario_tot[ntotal].contrasena);
-              }
-          }
+                printf ("\t\tQuieres crear una cuenta?\n");                     // Pantalla de registro
+        printf ("\t\t    Si (1) || No (2)\n");
+        scanf ("%i", &regyes);
+        if (regyes == 1) {
+                do {
+                        printf("Introduce un nombre de usuario:\n");            // Elige usuario y comprueba si ya existe, en caso de existir se repite hasta elegir uno que no exista
+                        scanf("%s", &newuser );
+                        do {
+                                strcpy (usertemp, usuario_tot[j].usuario);      // Comprueba si existe o no el usuario que se ha escrito
+                                val1 = strcmp(newuser, usertemp);
+                                j++;
+                        }while (valreg1 != 0 || i<99);
+                        if (valreg1 == 1)
+                                printf ("Este nombre de usuario ya existe\n");
+                        else{
+                                strcpy (newuser, usuario_tot[ntotal].usuario);  // Copia lo que se ha escrito en el vector en el vector de usuario para despues cargarlo
+                                printf ("Usuario creado con exito\n");
+                                printf("Escribe tu contraseña\n");
+                                scanf("%s", &newcontr);
+                                strcpy (newcontr, usuario_tot[ntotal].contrasena); // Copia lo que se ha escrito en el vector en el vector de usuario.contraseña para despues cargarlo
+                        }
+                }while (valreg1 == 1);
+
+        }
 
 }

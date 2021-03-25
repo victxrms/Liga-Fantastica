@@ -1,0 +1,80 @@
+01-01-Fernando Pacheco-14-0
+02-01-Víctor Laguardia-5-0
+03-01-Rodrigo Battaglia-4-0
+04-01-Facundo Pellistri-7-0
+05-02-Unai Simón-30-0
+06-02-Iñigo Martínez-25-0
+07-02-Iker Muniain-14-0
+08-02-Iñaki Williams-25-0
+09-03-Jan Oblak-90-0
+10-03-Jose María Giménez-65-0
+11-03-Koke-60-0
+12-03-João Félix-100-0
+13-04-Marc-André ter Stegen-75-0
+14-04-Clément Lenglet-40-0
+15-04-Frenkie de Jong-65-0
+16-04-Ansu Fati-80-0
+17-05-Jeremías Ledesma-3-0
+18-05-Alfonso Espino-2-0
+19-05-Álex Fernández-7-0
+20-05-Salvi Sanchez-2,8-0
+21-06-Rubén Blanco-7-0
+22-06-Joseph Aidoo-7-0
+23-06-Fran Beltrán-12-0
+24-06-Santi Mina-12-0
+25-07-Marco Dimitrovic-10-0
+26-07-Alejandro Pozo-5-0
+27-07-Edu Expósito-4-0
+28-07-Bryan Gil-15-0
+29-08-Paulo Gazzaniga-4-0
+30-08-Johan Mojica-2,5-0
+31-08-Raúl Guti-4,5-0
+32-08-Emiliano Rigoni-3,2-0
+33-09-David Soria-9-0
+34-09-Djené-25-0
+35-09-Marc Cucurella-20-0
+36-09-Takefusa Kubo-20-0
+37-10-Rui Silva-10-0
+38-10-Domigos Duarte-12-0
+39-10-Yangel Herrera-15-0
+40-10-Luis Suárez-15-0
+41-11-Álvaro Fernández-3-0
+42-11-Denis Vavro-4-0
+43-11-Idrissa Doumbia-3,5-0
+44-11-Javi Ontiveros-6-0
+45-12-Aitor Fernández-8-0
+46-12-Rubén Vezo-8-0
+47-12-José Campaña-22-0
+48-12-Enis Bardhi-18-0
+49-13-Sergio Herrera-1,8-0
+50-13-David García-7,5-0
+51-13-Roberto Torres-6-0
+52-13-Rubén García-10-0
+53-14-Joel Robles-4-0
+54-14-Emerson Royal-20-0
+55-14-Nabil Fekir-25-0
+56-14-Loren Morón-12-0
+57-15-Thibaut Courtois-75-0
+58-15-Raphael Varane-70-0
+59-15-Casemiro-70-0
+60-15-Eden Hazard-50-0
+61-16-Álex Remiro-20-0
+62-16-Robin Le Normand-20-0
+63-16-Mikel Merino-40-0
+64-16-Mikel Oyarzabal-70-0
+65-17-Jordi Masip-2,8-0
+66-17-Lucas Olaza-6-0
+67-17-Rubén Alcaráz-6-0
+68-17-Jota-6,5-0
+69-18-Bono-15-0
+70-18-Diego Carlos-50-0
+71-18-Joan Jordán-25-0
+72-18-Lucas Ocampos-45-0
+73-19-Jaume Doménech-6-0
+74-19-José Gayà-35-0
+75-19-Carlos Soler-35-0
+76-19-Maxi Gómez-32-0
+77-20-Sergio Asenjo-10-0
+78-20-Pau Torres-50-0
+79-20-Manu Trigueros-11-0
+80-20-Gerard Moreno-30-0

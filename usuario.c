@@ -46,8 +46,8 @@ int main(){
                 }else printf ("El usuario no existe\n");
         }
         else
-                printf ("\t\tQuieres crear una cuenta?\n");                     // Pantalla de registro
-        printf ("\t\t    Si (1) || No (2)\n");
+                printf ("\t\t\tQuieres crear una cuenta?\n");                     // Pantalla de registro
+        printf ("\t\t\t    Si (1) || No (2)\n");
         scanf ("%i", &regyes);
         if (regyes == 1) {
                 do {
@@ -55,7 +55,7 @@ int main(){
                         scanf("%s", &newuser );
                         do {
                                 strcpy (usertemp, usuario_tot[j].usuario);      // Comprueba si existe o no el usuario que se ha escrito
-                                val1 = strcmp(newuser, usertemp);
+                                valreg1 = strcmp(newuser, usertemp);
                                 j++;
                         }while (valreg1 != 0 || i<99);
                         if (valreg1 == 1)

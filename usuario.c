@@ -10,6 +10,7 @@
 #define ADMIN 3
 
 void configuracion ();
+void equipo ();
 
 void usuario(){
 
@@ -74,20 +75,16 @@ void usuario(){
                         }
                 }while (valreg1 == 1);
         }
-}
+
 
         switch (usuario_tot[i].perfil_usuario){
 
           case 01: {
             printf ("Eres usuario, escribe un mensaje al administrador si no es asi \n");
-            printf ("?Que deseas hacer?\n")
-            do {
-              printf ("Ver las plantillas (1) | Editar tus plantillas (2)");
-              scanf ("%d", &useropt);
-            } while(useropt != 1 & useropt != 2);
+            equipo ();
 
             }
-          }
+
           case 02: {
             printf("Eres cronista, escribe un mensaje al administrador si no es asi \n");
             do {
@@ -109,5 +106,5 @@ void usuario(){
             configuracion ();
 
           }
-
         }
+}

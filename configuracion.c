@@ -2,10 +2,10 @@
 #include "configuracion.h"
 
 
-int main (){
+void configuracion (){
 
         int n, precio_min, precio_max, n_max_plant, n_max_jugadores;
-        configuracion configuracion_tot[3];
+        configuraciones configuracion_tot[3];
 
         printf ("Que desea editar? \n\n 1-precio minimo | 2-precio maximo | 3- Numero max de plantillas |  4-Numero max de jugadores\n");
         scanf ("%d", &n);

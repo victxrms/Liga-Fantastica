@@ -3,17 +3,22 @@
 #include <string.h>
 #include "usuario.h"
 #include "futbolista.h"
-#include "configuracion.c"
+#include "configuracion.h"
+
+
 
 #define USER 1
 #define CHRONIST 2
 #define ADMIN 3
 
+int configuracion ();
 
 
-int usuario(){
+void usuario(){
 
         int reg, useropt, regyes, i=1, j=1, val1, val2, valreg1, valreg2, user=0, ntotal, jugedit;
+
+
 
         usuarios usuario_tot[99];
         futbolista futbolista_tot[99];
@@ -103,7 +108,6 @@ int usuario(){
           case 03: {
             printf("Eres administrador, escribe un mensaje a otro administrador si no es asi \n");
             configuracion ();
-
           }
         }
         }

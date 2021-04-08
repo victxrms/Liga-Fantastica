@@ -2,7 +2,7 @@
 #include "configuracion.h"
 
 
-int main (){
+int config (){
 
 int n, precio_min, precio_max, n_max_plant, n_max_jugadores, resp;
 configuracion configuracion_tot [3];

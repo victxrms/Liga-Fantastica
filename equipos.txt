@@ -1,8 +1,8 @@
-01-Alavés
+01-Alaves
 02-Athletic
-03-Atlético
+03-Atletico
 04-Barcelona
-05-Cádiz
+05-Cadiz
 06-Celta
 07-Eibar
 08-Elche

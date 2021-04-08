@@ -19,7 +19,7 @@ int main (){
                 break;
 
         case 2:
-                printf ("Cual desea que sea el nuevo precio maximo?\n");
+                printf ("Cual desea que sea el nuevo precio maximo?\n");          //Añadir condicion para loopear por si se quiere seguir cambiando ajustes sin tener que reiniciar
                 scanf ("%d", &precio_max);
                 configuracion_tot [n-1].valor_campo= precio_max;
                 break;

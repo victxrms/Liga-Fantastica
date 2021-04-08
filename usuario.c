@@ -2,17 +2,20 @@
 #include <stdlib.h>
 #include <string.h>
 #include "usuario.h"
+#include "futbolista.h"
+#include "configuracion.c"
 
 #define USER 1
 #define CHRONIST 2
 #define ADMIN 3
 
 
-int main(){
+
+int usuario(){
 
         int reg, useropt, regyes, i=1, j=1, val1, val2, valreg1, valreg2, user=0, ntotal, jugedit;
 
-        usuario usuario_tot[99];
+        usuarios usuario_tot[99];
         futbolista futbolista_tot[99];
 
         char userinp[9], contrinp[9], usertemp[9], newuser[9], newcontr[9];
@@ -71,26 +74,22 @@ int main(){
                         }
                 }while (valreg1 == 1);
         }
-}
+
 
         switch (usuario_tot[i].perfil_usuario){
 
           case 01: {
             printf ("Eres usuario, escribe un mensaje al administrador si no es asi \n");
-            printf ("?Que deseas hacer?\n")
-            do {
-              printf ("Ver las plantillas (1) | Editar tus plantillas (2)");
-              scanf ("%d", &useropt);
-            } while(useropt != 1 & useropt != 2);
+
 
             }
-          }
+
           case 02: {
             printf("Eres cronista, escribe un mensaje al administrador si no es asi \n");
             do {
               printf("?Que jugador quieres editar? Introduce su identificador: \n");
               scanf("%d", &jugedit );
-              printf ("El jugador es %s y su valoración actual es %d\n" futbolista_tot[jugedit].nombre_futbolista, futbolista_tot[jugedit].valoracion);
+              printf ("El jugador es %s y su valoración actual es %d\n", futbolista_tot[jugedit].nombre_futbolista, futbolista_tot[jugedit].valoracion);
               printf("Introduce la nueva valoracion: \n");
               scanf("%d", futbolista_tot[jugedit].valoracion);
               do {
@@ -103,8 +102,8 @@ int main(){
           }
           case 03: {
             printf("Eres administrador, escribe un mensaje a otro administrador si no es asi \n");
-            printf("?Que deseas hacer?\n");
+            configuracion ();
 
           }
-
+        }
         }

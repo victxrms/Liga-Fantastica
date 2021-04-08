@@ -2,17 +2,20 @@
 #include <stdlib.h>
 #include <string.h>
 #include "usuario.h"
+#include "futbolista.h"
+#include "configuracion.h"
 
 #define USER 1
 #define CHRONIST 2
 #define ADMIN 3
 
+void configuracion ();
 
-int main(){
+void usuario(){
 
         int reg, useropt, regyes, i=1, j=1, val1, val2, valreg1, valreg2, user=0, ntotal, jugedit;
 
-        usuario usuario_tot[99];
+        usuarios usuario_tot[99];
         futbolista futbolista_tot[99];
 
         char userinp[9], contrinp[9], usertemp[9], newuser[9], newcontr[9];
@@ -90,9 +93,9 @@ int main(){
             do {
               printf("?Que jugador quieres editar? Introduce su identificador: \n");
               scanf("%d", &jugedit );
-              printf ("El jugador es %s y su valoración actual es %d\n" futbolista_tot[jugedit].nombre_futbolista, futbolista_tot[jugedit].valoracion);
+              printf ("El jugador es %s y su valoración actual es %d\n", futbolista_tot[jugedit].nombre_futbolista, futbolista_tot[jugedit].valoracion);
               printf("Introduce la nueva valoracion: \n");
-              scanf("%d", futbolista_tot[jugedit].valoracion);
+              scanf("%d", &futbolista_tot[jugedit].valoracion);
               do {
                 printf("?Quieres seguir editando jugadores?\n");
                 printf("Si (1) | No (2)\n");
@@ -103,7 +106,7 @@ int main(){
           }
           case 03: {
             printf("Eres administrador, escribe un mensaje a otro administrador si no es asi \n");
-            printf("?Que deseas hacer?\n");
+            configuracion ();
 
           }
 

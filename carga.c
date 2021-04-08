@@ -2,7 +2,7 @@
 
 FILE *f_equipos, *f_configuracion;
 equipo *total_equipos;
-configuracion *toda_config;
+configuraciones *toda_config;
 
 void limpiar(char *string)
 {
@@ -90,7 +90,7 @@ void carga_configuracion()
         {
                 numero_config=contar_lineas(f_configuracion);
                 rewind(f_configuracion);
-                toda_config=(configuracion *)malloc(numero_config*sizeof(configuracion));
+                toda_config=(configuraciones *)malloc(numero_config*sizeof(configuraciones));
                 if(toda_config==NULL)
                 {
                         printf("error al reservar memoria");
@@ -99,6 +99,8 @@ void carga_configuracion()
                 {
                         for(i=0; !feof(f_configuracion); i++)
                         {
+                                limpiar(cad_aux);
+                                letra='0';
                                 for(j=0; !feof(f_configuracion) && letra!='-'; j++)
                                 {
                                         letra=fgetc(f_configuracion);

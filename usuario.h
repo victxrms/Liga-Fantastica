@@ -3,6 +3,6 @@ typedef struct{
 	int numero_total;
 	char nombre_usuario[21];
 	int perfil_usuario;
-	char usuario[9];
+	char user;
 	char contrasena[9];
-}usuarios;
+} usuarios;

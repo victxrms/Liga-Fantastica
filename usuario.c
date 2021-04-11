@@ -60,14 +60,14 @@ void usuario(){
                         printf("Introduce un nombre de usuario:\n");            // Elige usuario y comprueba si ya existe, en caso de existir se repite hasta elegir uno que no exista
                         scanf("%s", &newuser );
                         do {
-                                strcpy (usertemp, usuario_tot[j].usuario);      // Comprueba si existe o no el usuario que se ha escrito
+                                strcpy (usertemp, usuario_tot[j].user);      // Comprueba si existe o no el usuario que se ha escrito
                                 valreg1 = strcmp(newuser, usertemp);
                                 j++;
                         }while (valreg1 != 0 || i<99);
                         if (valreg1 == 1)
                                 printf ("Este nombre de usuario ya existe\n");
                         else{
-                                strcpy (newuser, usuario_tot[ntotal].usuario);  // Copia lo que se ha escrito en el vector en el vector de usuario para despues cargarlo
+                                strcpy (newuser, usuario_tot[ntotal].user);  // Copia lo que se ha escrito en el vector en el vector de usuario para despues cargarlo
                                 printf ("Usuario creado con exito\n");
                                 printf("Escribe tu contraseña\n");
                                 scanf("%s", &newcontr);

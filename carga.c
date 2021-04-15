@@ -1,14 +1,14 @@
 #include "carga.h"
 
-FILE *f_equipos, *f_configuracion, *f_usuario;
+FILE *f_equipos, *f_configuracion, *f_usuario, *f_futbolista;
 equipo *total_equipos;
 configuraciones *toda_config;
 usuarios *total_usuarios;
+futbolista *total_futbolistas;
 
 void limpiar(char *string)
 {
         int i;
-        char c;
         for(i=0; string[i]!='\0'; i++)
         {
                 string[i]=' ';
@@ -142,6 +142,7 @@ void carga_usuario()
         else
         {
                 n_usuarios=contar_lineas(f_usuario);
+                rewind(f_usuario);
                 total_usuarios=(usuarios *) malloc (n_usuarios*sizeof(usuarios));
                 if(total_usuarios==NULL)
                 {
@@ -211,4 +212,88 @@ void carga_usuario()
                 }
         }
         fclose(f_usuario);
+}
+
+
+void carga_futbolistas()
+{
+        int n_futbolistas, i, j;
+        char aux[21], letra;
+        f_futbolista=fopen("futbolistas.txt", "r");
+        if(f_futbolista==NULL)
+        {
+                printf("error al abrir fichero futbolistas \n");
+        }
+        else
+        {
+                n_futbolistas=contar_lineas(f_futbolista);
+                rewind(f_futbolista);
+                total_futbolistas=(futbolista *) malloc (n_futbolistas*sizeof(futbolista));
+                if(total_futbolistas==NULL)
+                {
+                        printf("error al reservar espacio de memoria para futbolistas \n");
+                }
+                else
+                {
+                        for(i=0; !feof(f_futbolista); i++)
+                        {
+                                limpiar(aux);
+                                letra='0';
+                                for(j=0; !feof(f_futbolista) && letra!='-'; j++)
+                                {
+                                        letra=fgetc(f_futbolista);
+                                        if(letra!='-')
+                                        {
+                                                aux[j]=letra;
+                                        }
+                                }
+                                total_futbolistas[i].identificador_futbolista=atoi(aux);
+                                limpiar(aux);
+                                letra='0';
+                                for(j=0; !feof(f_futbolista) && letra!='-'; j++)
+                                {
+                                        letra=fgetc(f_futbolista);
+                                        if(letra!='-')
+                                        {
+                                                aux[j]=letra;
+                                        }
+                                }
+                                total_futbolistas[i].identificador_equipo_pertenece=atoi(aux);
+                                limpiar(aux);
+                                letra='0';
+                                for(j=0; !feof(f_futbolista) && letra!='-'; j++)
+                                {
+                                        letra=fgetc(f_futbolista);
+                                        if(letra!='-')
+                                        {
+                                                aux[j]=letra;
+                                        }
+                                }
+                                strcpy(total_futbolistas[i].nombre_futbolista, aux);
+                                limpiar(aux);
+                                letra='0';
+                                for(j=0; !feof(f_futbolista) && letra!='-'; j++)
+                                {
+                                        letra=fgetc(f_futbolista);
+                                        if(letra!='0')
+                                        {
+                                                aux[j]=letra;
+                                        }
+                                }
+                                total_futbolistas[i].precio_futbolista=atoi(aux);
+                                limpiar(aux);
+                                letra='0';
+                                for(j=0; !feof(f_futbolista) && letra!='\n'; j++)
+                                {
+                                        letra=fgetc(f_futbolista);
+                                        if(letra!='\n')
+                                        {
+                                                aux[j]=letra;
+                                        }
+                                }
+                                total_futbolistas[i].valoracion=atoi(aux);
+                        }
+                }
+        }
+        fclose(f_futbolista);
 }

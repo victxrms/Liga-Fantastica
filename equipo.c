@@ -58,7 +58,7 @@ void printinpos(int x, char texto[50])
 
 int main()
 {
-    int i, opt;
+    int i, opt, codigo;
     char menu1, name[25], string[50];
 
     do
@@ -101,7 +101,10 @@ int main()
                         printinpos(40, string);
                 }while(opt!=1);
 
+                rewind(jugadores);
 
+                printf("\n\nIntroduzca el codigo de su %s -->", &posicion);
+                scanf("%i", &codigo);
             }
         break;
     }

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "carga.h"
 
 FILE *jugadores, *equipos, *plantillas;
 
@@ -34,11 +35,31 @@ int numero_plantillas()
     return num_plant;
 }
 
+void printinpos(int x, char texto[50])
+{
+    int fin=0;
+    char letra;
+
+    for(int i=-1; i<x, i++)
+    {
+        letra=texto[i];
+
+        if(letra='-')
+            fin=1;
+
+        if(fin=0)
+            printf("%c", &letra);
+        else
+            printf("%c", ' ');
+    }
+}
+
+
 
 int main()
 {
-    int i;
-    char menu1, name[25];
+    int i, opt;
+    char menu1, name[25], string[50];
 
     do
     {
@@ -59,10 +80,27 @@ int main()
                 printf("Como quieres que se llame la nueva plantilla?\n");
                 fgets(name,25,stdin);
                 fputs(name, plantillas);        //    ?????
-                
+
 
 
                 jugadores=fopen("Jugadores.txt","r");
+                opt=0;
+                do
+                {
+                    i=0;
+                    do
+                    {
+                        string[i]=getc(jugadores);
+                        i++;
+                    }while(string[i]!='-'||string[i]!=EOF);
+
+                    if(string[i]=EOF)
+                        opt=1;
+
+                    if(opt!=1)
+                        printinpos(40, string);
+                }while(opt!=1);
+
 
             }
         break;

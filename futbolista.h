@@ -4,4 +4,5 @@ typedef struct{
 	char nombre_futbolista[21];
 	int precio_futbolista;
 	int valoracion;
+	int valoracion_total;
 }futbolista;

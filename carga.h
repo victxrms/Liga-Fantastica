@@ -5,8 +5,11 @@
 #include "equipo.h"
 #include "futbolista.h"
 #include "usuario.h"
-void carga_equipos();
 int contar_lineas(FILE *);
 void limpiar(char *);
+void carga_equipos();
 void carga_configuracion();
 void carga_usuario();
+void carga_futbolistas();
+void carga_plantillas();
+void carga_jugadores_plantillas();

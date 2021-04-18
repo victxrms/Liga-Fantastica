@@ -1,10 +1,12 @@
 #include "carga.h"
 
-FILE *f_equipos, *f_configuracion, *f_usuario, *f_futbolista;
+FILE *f_equipos, *f_configuracion, *f_usuario, *f_futbolista, *f_plantillas, *f_jugadores_plantilla;
 equipo *total_equipos;
 configuraciones *toda_config;
 usuarios *total_usuarios;
 futbolista *total_futbolistas;
+plantilla *total_plantillas;
+jugadores_plantilla *total_jugad_plant;
 
 void limpiar(char *string)
 {
@@ -296,4 +298,138 @@ void carga_futbolistas()
                 }
         }
         fclose(f_futbolista);
+}
+
+void carga_plantillas()
+{
+        int i, j, numero_plantillas;
+        char cad_aux[31], letra;
+        f_plantillas=fopen("Plantillas.txt", "r");
+        if(f_plantillas==NULL)
+        {
+                printf("error al abrir fichero de plantillas. \n");
+        }
+        else
+        {
+                numero_plantillas=contar_lineas(f_plantillas);
+                rewind(f_plantillas);
+                total_plantillas=(plantilla *) malloc(numero_plantillas*sizeof(plantilla));
+                if(total_plantillas==NULL)
+                {
+                        printf("error al reservar espacio de memoria para plantillas. \n");
+                }
+                else
+                {
+                        for(i=0; !feof(f_plantillas); i++)
+                        {
+                                limpiar(cad_aux);
+                                letra='0';
+                                for(j=0; !feof(f_plantillas) && letra!='-'; j++)
+                                {
+                                        letra=fgetc(f_plantillas);
+                                        if(letra!='-')
+                                        {
+                                                cad_aux[j]=letra;
+                                        }
+                                }
+                                total_plantillas[i].identificador_prop_plantilla=atoi(cad_aux);
+                                limpiar(cad_aux);
+                                letra='0';
+                                for(j=0; !feof(f_plantillas) && letra!='-'; j++)
+                                {
+                                        letra=fgetc(f_plantillas);
+                                        if(letra!='-')
+                                        {
+                                                cad_aux[j]=letra;
+                                        }
+                                }
+                                total_plantillas[i].identificador_plantilla=atoi(cad_aux);
+                                limpiar(cad_aux);
+                                letra='0';
+                                for(j=0; !feof(f_plantillas) && letra!='-'; j++)
+                                {
+                                        letra=fgetc(f_plantillas);
+                                        if(letra!='-')
+                                        {
+                                                cad_aux[j]=letra;
+                                        }
+                                }
+                                strcpy(total_plantillas[i].nombre_plantilla, cad_aux);
+                                limpiar(cad_aux);
+                                letra='0';
+                                for(j=0; !feof(f_plantillas) && letra!='-'; j++)
+                                {
+                                        letra=fgetc(f_plantillas);
+                                        if(letra!='-')
+                                        {
+                                                cad_aux[j]=letra;
+                                        }
+                                }
+                                total_plantillas[i].presupuesto=atoi(cad_aux);
+                                limpiar(cad_aux);
+                                letra='0';
+                                for(j=0; !feof(f_plantillas) && letra!='\n'; j++)
+                                {
+                                        letra=fgetc(f_plantillas);
+                                        if(letra!='\n')
+                                        {
+                                                cad_aux[j]=letra;
+                                        }
+                                }
+                                total_plantillas[i].puntuacion_plantilla=atoi(cad_aux);
+
+                        }
+                }
+        }
+        fclose(f_plantillas);
+}
+
+void carga_jugadores_plantillas()
+{
+        int i, j, numero_jug_plantillas;
+        char letra, cad_aux[4];
+        f_jugadores_plantilla=fopen("jugadores_plantilla.txt", "r");
+        if(f_jugadores_plantilla==NULL)
+        {
+                printf("error al abrir fichero de jugadores de plantillas. \n");
+        }
+        else
+        {
+                numero_jug_plantillas=contar_lineas(f_jugadores_plantilla);
+                rewind(f_jugadores_plantilla);
+                total_jugad_plant=(jugadores_plantilla *) malloc(numero_jug_plantillas*sizeof(jugadores_plantilla));
+                if(total_jugad_plant==NULL)
+                {
+                        printf("error al reservar memoria para los jugadores de las plantillas. \n");
+                }
+                else
+                {
+                        for(i=0; !feof(f_jugadores_plantilla); i++)
+                        {
+                                limpiar(cad_aux);
+                                letra='0';
+                                for(j=0; !feof(f_jugadores_plantilla) && letra!='-'; j++)
+                                {
+                                        letra=fgetc(f_jugadores_plantilla);
+                                        if(letra!='-')
+                                        {
+                                                cad_aux[j]=letra;
+                                        }
+                                }
+                                total_jugad_plant[i].identificador_jugador=atoi(cad_aux);
+                                limpiar(cad_aux);
+                                letra='0';
+                                for(j=0; !feof(f_jugadores_plantilla) && letra!='\n'; j++)
+                                {
+                                        letra=fgetc(f_jugadores_plantilla);
+                                        if(letra!='\n')
+                                        {
+                                                cad_aux[j]=letra;
+                                        }
+                                }
+                                total_jugad_plant[i].identificador_plantilla=atoi(cad_aux);
+                        }
+                }
+        }
+        fclose(f_jugadores_plantilla);
 }

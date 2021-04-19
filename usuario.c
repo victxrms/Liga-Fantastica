@@ -37,7 +37,7 @@ void usuario(){
                         strcpy (usertemp, usuario_tot[i].usuario);
                         val1 = strcmp(userinp, usertemp);
                         i++;
-                }while (val1 != 0 || i<99);
+                }while (val1 == 0 || i<99);
 
                 if (val1==1) {
 

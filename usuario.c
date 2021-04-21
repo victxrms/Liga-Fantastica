@@ -6,7 +6,7 @@
 
 
 void configuracion ();
-void equipo ();
+void equipo (int );
 
 void usuario(){
 
@@ -60,7 +60,7 @@ void usuario(){
                                 strcpy (usertemp, usuario_tot[j].user);      // Comprueba si existe o no el usuario que se ha escrito
                                 valreg2 = strcmp(newuser, usertemp);
                                 j++;
-                        }while ((valreg2 = 1));
+                        }while ((valreg2 == 1));
                         if (valreg2 == 1)
                                 printf ("Este nombre de usuario ya existe\n");
                         else{
@@ -70,6 +70,7 @@ void usuario(){
                                 scanf("%c", &newcontr[9]);
                                 strcpy (usuario_tot[ntotal].contrasena, &newcontr[9]); // Copia lo que se ha escrito en el vector en el vector de usuario.contraseña para despues cargarlo
                                 printf ("Enhorabuena, un admin editará tu tipo de perfil mas adelante, espere a ser notificado\n");
+                                exit (0);
                         }
                 }while (valreg2 == 1);
         }
@@ -79,7 +80,7 @@ void usuario(){
                                                                                                 //En el caso de ser usuario a equipo, de ser cronista se ejecuta el case 2  permitiendo ejecutar la
           case 01: {                                                                            //funcion del cronista, editando los futbolistas, y en el caso de ser admin se pasa a configuracion.
             printf ("Eres usuario, escribe un mensaje al administrador si no es asi \n");
-            equipo ();
+            equipo (i);
 
             }
 

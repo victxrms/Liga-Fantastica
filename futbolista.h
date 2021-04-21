@@ -6,8 +6,3 @@ typedef struct{
 	int valoracion;
 	int valoracion_total;
 }futbolista;
-
-typedef struct{
-	int identificador_jugador;
-	int identificador_plantilla;
-}jugadores_plantilla;

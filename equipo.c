@@ -1,66 +1,53 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "equipo.h"
+#include "usuario.h"
 #include "carga.h"
+#include "configuracion.h"
+#include "futbolista.h"
 
 #define presupuesto 1000
 
-int numero_plantillas()
+int ident_plantillas();
+int numero_plantillas(int );
+void equipo(int );
+
+int ident_plantillas()
 {
-    int n, corr, num_plant;
-    char aux[3];
+    int i, jug, ident_plant, ident_usuario;
+    char nombre[21];
 
     plantillas=fopen("Plantillas.txt","r");
 
-    while(aux[3]!=EOF)
+    while(fscanf("%i %s %i", &ident_plant, &nombre, &ident_usuario)==3)
     {
-        fgets(aux,3,plantillas);
-        n=1;
-        while(n<=3)
-        {
-            if(aux[n]=ident[n]) //ident: numero de identificacion de usuario
-            {
-                corr++;
-            }
-            n++;
-
-            if(corr=3)
-                num_plant++;
-        }
+        for(i=0; i<11; i++)
+            fscanf("%i", &jug)
     }
+
     fclose(plantillas);
 
-    return num_plant;
+    return ident_plant;
 }
 
-void printinpos(int x, char texto[50])
+int numero_plantillas(int x)
 {
-    int fin=0;
-    char letra;
+    int i, num=0;
 
-    for(int i=-1, i<x, i++)
-    {
-        letra=texto[i];
-
-        if(letra='-')
-            fin=1;
-
-        if(fin=0)
-            printf("%c", &letra);
-        else
-            printf("%c", ' ');
-    }
+    for(i=0;i<;i++)
+        if(total_plantillas[i].identificador_prop_plantilla==x)
+            num++;
+    return num;
 }
 
-
-
-void equipo()
+void equipo(int x)
 {
-    FILE *jugadores;
-	FILE *plantillas;
-	int i=1, i2=0, i3=0, i4=0, n=0, j[11], salida=0, reset2, codigo;
+    FILE *fichero;
+
+	int i=1, i2=0, i3=0, i4=0, n=0, j[11], salida=0, reset2, codigo, x, y;
 	float precio, valor=0, diferencia;
-	char menu1, name[25], c, reset;
+	char user[9], menu1, c, reset;
 
     do
     {
@@ -73,14 +60,19 @@ void equipo()
     switch (menu1)
     {
         case '1':
-            if(numero_plantillas()>=3)    //crear numero_plantillas
+            if(numero_plantillas(x)>=3)    //crear numero_plantillas
                 printf("Ya tienes el numero maximo de plantillas");
             else
             {
-                plantillas=fopen("Plantillas.txt","rw");
-                printf("Como quieres que se llame la nueva plantilla?\n");
-                fgets(name,25,stdin);
-                fputs(name, plantillas);        //    ?????
+                printf("Como quieres que se llame la nueva plantilla? (sin espacios, max 21 caracteres) --> ");
+                fichero=fopen("plantillas .txt","r");
+                y=contar_lineas(fichero);
+                fclose(fichero);
+                total_plantillas=(plantilla *)realloc(total_plantillas, (y+1)*sizeof(plantilla))
+                scanf("%s", &total_plantillas.nombre_plantilla);
+                total_plantillas.identificador_plantilla=y+1;
+                total_plantillas.identificador_prop_plantilla=x;
+
 
                 jugadores=fopen("jugadores.txt","r");
 
@@ -189,8 +181,6 @@ void equipo()
                             i++;
                         }
                     }
-
-                    printf("%i", j[10]);
 
                     fclose(jugadores);
 

@@ -27,7 +27,7 @@ void usuario(){
                 scanf ("%d", &reg);
         } while(reg!=1 & reg !=2);
 
-        if (reg==1) {
+        if (reg==1) {                                                           // Si reg es 1 inicias sesión y compara los valores introducidos con los que encontramos en los archivos
 
                 printf ("Introduce tu usuario: ");
                 scanf ("%s", userinp);
@@ -69,14 +69,15 @@ void usuario(){
                                 printf("Escribe tu contraseña\n");
                                 scanf("%c", &newcontr[9]);
                                 strcpy (usuario_tot[ntotal].contrasena, &newcontr[9]); // Copia lo que se ha escrito en el vector en el vector de usuario.contraseña para despues cargarlo
+                                printf ("Enhorabuena, un admin editará tu tipo de perfil mas adelante, espere a ser notificado\n");
                         }
                 }while (valreg2 == 1);
         }
 
 
-        switch (usuario_tot[i].perfil_usuario){
-
-          case 01: {
+        switch (usuario_tot[i].perfil_usuario){                                                 //Este switch se encarga de redireccionar a otras funciones dependiendo del tipo de usuario que sea
+                                                                                                //En el caso de ser usuario a equipo, de ser cronista se ejecuta el case 2  permitiendo ejecutar la
+          case 01: {                                                                            //funcion del cronista, editando los futbolistas, y en el caso de ser admin se pasa a configuracion.
             printf ("Eres usuario, escribe un mensaje al administrador si no es asi \n");
             equipo ();
 

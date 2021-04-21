@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 #include "usuario.h"
 #include "futbolista.h"
@@ -16,7 +15,9 @@ void usuario(){
         usuarios usuario_tot[99];
         futbolista futbolista_tot[99];
 
-        char userinp[9], contrinp[9], usertemp, newuser[9], newcontr[9];
+        char userinp[9], contrinp[9], usertemp[9], newuser[9], newcontr[9];
+
+        ntotal = usuario_tot->numero_total;
 
         printf ("\t\t   Bienvenido a la Liga Fantastica\n");                    // Printea el titulo
         printf ("\t\t------------------------------------\n");
@@ -43,7 +44,7 @@ void usuario(){
                         val2 = strcmp(contrinp, usuario_tot[i].contrasena);
                         if (val2 == 1)
                                 printf ("Inicio de sesion correcto\n");
-                        else ("La contraseña es incorrecta\n");
+                        else (printf ("La contraseña es incorrecta\n"));
 
                 }else printf ("El usuario no existe\n");
         }
@@ -54,16 +55,16 @@ void usuario(){
         if (regyes == 1) {
                 do {
                         printf("Introduce un nombre de usuario:\n");            // Elige usuario y comprueba si ya existe, en caso de existir se repite hasta elegir uno que no exista
-                        scanf("%c", &newuser[9] );
+                        scanf("%s", &newuser[9] );
                         do {
-                                strcpy (usertemp[9], usuario_tot[j].user);      // Comprueba si existe o no el usuario que se ha escrito
-                                valreg2 = strcmp(newuser, usertemp[9]);
+                                strcpy (usertemp, usuario_tot[j].user);      // Comprueba si existe o no el usuario que se ha escrito
+                                valreg2 = strcmp(newuser, usertemp);
                                 j++;
                         }while ((valreg2 = 1));
                         if (valreg2 == 1)
                                 printf ("Este nombre de usuario ya existe\n");
                         else{
-                                strcpy (newuser, &usuario_tot[ntotal].user);  // Copia lo que se ha escrito en el vector en el vector de usuario para despues cargarlo
+                                strcpy (newuser, usuario_tot[ntotal].user);  // Copia lo que se ha escrito en el vector en el vector de usuario para despues cargarlo
                                 printf ("Usuario creado con exito\n");
                                 printf("Escribe tu contraseña\n");
                                 scanf("%c", &newcontr[9]);
@@ -85,14 +86,14 @@ void usuario(){
             printf("Eres cronista, escribe un mensaje al administrador si no es asi \n");
             do {
               printf("?Que jugador quieres editar? Introduce su identificador: \n");
-              scanf("%d", &jugedit );
-              printf ("El jugador es %s y su valoración actual es %d\n", futbolista_tot[jugedit].nombre_futbolista, futbolista_tot[jugedit].valoracion);
+              scanf("%i", &jugedit );
+              printf ("El jugador es %s y su valoración actual es %i\n", futbolista_tot[jugedit].nombre_futbolista, futbolista_tot[jugedit].valoracion);
               printf("Introduce la nueva valoracion: \n");
               scanf("%d", &futbolista_tot[jugedit].valoracion);
               do {
                 printf("?Quieres seguir editando jugadores?\n");
                 printf("Si (1) | No (2)\n");
-                scanf("%d", &reg);
+                scanf("%i", &reg);
               } while(reg!=1 & reg !=2);
             } while (reg==1);
 

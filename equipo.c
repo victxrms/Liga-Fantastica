@@ -247,7 +247,7 @@ void equipo(int x)
 						scanf("%s", &total_plantillas[i].nombre_plantilla);
 					}
 				}
-				if(comp=0)
+				if(comp==0)
 					printf("Plantilla inexistente o no es suya.\n");
 				else
 				{
@@ -278,7 +278,7 @@ void equipo(int x)
 
 			for(i=0; i<y; i++)
 			{
-				if(bucle=1)
+				if(bucle==1)
 				{
 					total_plantillas[i].identificador_plantilla=total_plantillas[i].identificador_plantilla-1;
 					total_plantillas[i]=total_plantillas[i-1];
@@ -286,7 +286,7 @@ void equipo(int x)
 				if(total_plantillas[i].identificador_prop_plantilla==x&&total_plantillas[i].identificador_plantilla==borrar)
 					bucle=1;
 			}
-			if(bucle=0)
+			if(bucle==0)
 				printf("Plantilla inexistente o no es suya.\n");
 			else
 			{

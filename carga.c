@@ -290,15 +290,19 @@ void carga_futbolistas()
                                 total_futbolistas[i].valoracion=atoi(aux);
                                 limpiar(aux);
                                 letra='0';
-                                for(j=0; !feof(f_futbolista) && letra!='\n'; j++)
+                                for(j=0; !feof(f_futbolista) && letra!='-'; j++)
                                 {
                                         letra=fgetc(f_futbolista);
-                                        if(letra!='\n')
+                                        if(letra!='-')
                                         {
                                                 aux[j]=letra;
                                         }
                                 }
                                 total_futbolistas[i].valoracion_total=atoi(aux);
+                                while(!feof(f_futbolista) && letra!='\n')
+                                {
+                                        letra=fgetc(f_futbolista);
+                                }
                         }
                 }
         }
@@ -386,18 +390,16 @@ void carga_plantillas()
                                 letra='0';
                                 for(j=0; !feof(f_plantillas) && letra!='\n'; j++)
                                 {
-                                      for(k=0;!feof(f_plantillas) && letra!='-';k++)
-                                      {
-                                        letra=fgetc(f_plantillas);
-                                        if(letra!='-')
+                                        for(k=0; !feof(f_plantillas) && letra!='-'; k++)
                                         {
-                                          cad_aux[k]=letra;
-                                        }
+                                                letra=fgetc(f_plantillas);
+                                                if(letra!='-')
+                                                {
+                                                        cad_aux[k]=letra;
+                                                }
 
-                                      }
-                                      total_plantillas[i].jugadores[j]=atoi(cad_aux);
-                                      limpiar(cad_aux);
-                                      letra='0';
+                                        }
+                                        total_plantillas[i].jugadores[j]=atoi(cad_aux);
                                 }
                         }
                 }
@@ -407,108 +409,108 @@ void carga_plantillas()
 
 void descarga_configuracion()
 {
-  f_configuracion=fopen("configuracion.txt","w");
-  if(f_configuracion==NULL)
-{
-  printf("error al abrir fichero \n");
-}
-  else
-{
-  int i=-1;
-  do{
-    i++;
-    fprintf(f_configuracion,"$d-$s-$d\n",toda_config[i].identificador_configuracion, toda_config[i].campo_configuracion, toda_config[i].valor_campo);
-  }while(toda_config[i+1].identificador_configuracion==toda_config[i].identificador_configuracion+1);
-}
-  fclose(f_configuracion);
-  free(toda_config);
+        f_configuracion=fopen("configuracion.txt","w");
+        if(f_configuracion==NULL)
+        {
+                printf("error al abrir fichero \n");
+        }
+        else
+        {
+                int i=-1;
+                do{
+                        i++;
+                        fprintf(f_configuracion,"$d-$s-$d\n",toda_config[i].identificador_configuracion, toda_config[i].campo_configuracion, toda_config[i].valor_campo);
+                }while(toda_config[i+1].identificador_configuracion==toda_config[i].identificador_configuracion+1);
+        }
+        fclose(f_configuracion);
+        free(toda_config);
 }
 
 void descarga_usuario()
 {
-f_usuario=fopen("usuarios.txt","w");
-if(f_usuario==NULL)
-{
-  printf("error al abrir fichero \n");
-}
-  else
-  {
-    int i=-1;
-    do{
-      i++;
-      fprintf(f_usuario, "$d-$s-$d-$s-$s\n", total_usuarios[i].identificador_usuario, total_usuarios[i].nombre_usuario, total_usuarios[i].perfil_usuario, total_usuarios[i].user, total_usuarios[i].contrasena);
-    }while(total_usuarios[i+1].identificador_usuario==total_usuarios[i].identificador_usuario+1);
-  }
-  fclose(f_usuario);
-  free(total_usuarios);
+        f_usuario=fopen("usuarios.txt","w");
+        if(f_usuario==NULL)
+        {
+                printf("error al abrir fichero \n");
+        }
+        else
+        {
+                int i=-1;
+                do{
+                        i++;
+                        fprintf(f_usuario, "$d-$s-$d-$s-$s\n", total_usuarios[i].identificador_usuario, total_usuarios[i].nombre_usuario, total_usuarios[i].perfil_usuario, total_usuarios[i].user, total_usuarios[i].contrasena);
+                }while(total_usuarios[i+1].identificador_usuario==total_usuarios[i].identificador_usuario+1);
+        }
+        fclose(f_usuario);
+        free(total_usuarios);
 }
 
 void descarga_futbolistas()
 {
-  f_futbolista=fopen("futbolistas.txt", "w");
-  if(f_futbolista==NULL)
-{
-  printf("error al abrir fichero \n");
-}
-  else
-{
-  int i=-1;
-  do{
-    i++;
-    fprintf(f_futbolista,"%d-%d-%s-%d-%d-%d\n",total_futbolistas[i].identificador_futbolista, total_futbolistas[i].identificador_equipo_pertenece, total_futbolistas[i].nombre_futbolista, total_futbolistas[i].precio_futbolista, total_futbolistas[i].valoracion, total_futbolistas[i].valoracion_total);
-  }while(total_futbolistas[i+1].identificador_futbolista==total_futbolistas[i].identificador_futbolista+1);
-}
-fclose(f_futbolista);
-free(total_futbolistas);
+        f_futbolista=fopen("futbolistas.txt", "w");
+        if(f_futbolista==NULL)
+        {
+                printf("error al abrir fichero \n");
+        }
+        else
+        {
+                int i=-1;
+                do{
+                        i++;
+                        fprintf(f_futbolista,"%d-%d-%s-%d-%d-%d-\n",total_futbolistas[i].identificador_futbolista, total_futbolistas[i].identificador_equipo_pertenece, total_futbolistas[i].nombre_futbolista, total_futbolistas[i].precio_futbolista, total_futbolistas[i].valoracion, total_futbolistas[i].valoracion_total);
+                }while(total_futbolistas[i+1].identificador_futbolista==total_futbolistas[i].identificador_futbolista+1);
+        }
+        fclose(f_futbolista);
+        free(total_futbolistas);
 }
 
 void descarga_equipos()
 {
-  f_equipos=fopen("equipos.txt", "w");
-  if(f_equipos==NULL)
-  {
-    printf("error al abrir fichero \n");
-  }
-    else
-    {
-      int i=-1;
-      do{
-        i++;
-        fprintf(f_equipos,"%d-%s\n", total_equipos[i].identificador_equipo, total_equipos[i].nombre_equipo);
-      }while(total_equipos[i+1].identificador_equipo==total_equipos[i].identificador_equipo+1);
-    }
-    fclose(f_equipos);
-    free(total_equipos);
+        f_equipos=fopen("equipos.txt", "w");
+        if(f_equipos==NULL)
+        {
+                printf("error al abrir fichero \n");
+        }
+        else
+        {
+                int i=-1;
+                do{
+                        i++;
+                        fprintf(f_equipos,"%d-%s\n", total_equipos[i].identificador_equipo, total_equipos[i].nombre_equipo);
+                }while(total_equipos[i+1].identificador_equipo==total_equipos[i].identificador_equipo+1);
+        }
+        fclose(f_equipos);
+        free(total_equipos);
 }
 
 
 void descarga_plantillas()
 {
-  f_plantillas=fopen("Plantillas.txt", "w");
-  if(f_plantillas==NULL)
-  {
-    printf("error al abrir fichero \n");
-  }
-  else
-  {
-    int i=-1, j, cuenta=0;
-    do{
-      i++;
-      fprintf(f_plantillas,"$d-%d-%s-%d-%d",total_plantillas[i].identificador_prop_plantilla, total_plantillas[i].identificador_plantilla, total_plantillas[i].nombre_plantilla, total_plantillas[i].presupuesto, total_plantillas[i].puntuacion_plantilla);
-      for(j=0;j<11;j++)
-      {
-        fprintf(f_plantillas,"$d", total_plantillas[i].jugadores[j]);
-        if(cuenta<10)
+        f_plantillas=fopen("Plantillas.txt", "w");
+        if(f_plantillas==NULL)
         {
-          fprintf(f_plantillas, "-");
+                printf("error al abrir fichero \n");
         }
         else
         {
-          fprintf(f_plantillas,"\n");
+                int i=-1, j, cuenta=0;
+                do{
+                        i++;
+                        fprintf(f_plantillas,"$d-%d-%s-%d-%d",total_plantillas[i].identificador_prop_plantilla, total_plantillas[i].identificador_plantilla, total_plantillas[i].nombre_plantilla, total_plantillas[i].presupuesto, total_plantillas[i].puntuacion_plantilla);
+                        for(j=0; j<11; j++)
+                        {
+                                fprintf(f_plantillas,"$d", total_plantillas[i].jugadores[j]);
+                                if(cuenta<10)
+                                {
+                                        fprintf(f_plantillas, "-");
+                                }
+                                else
+                                {
+                                        fprintf(f_plantillas,"\n");
+                                }
+                        }
+                }while(total_plantillas[i+1].identificador_plantilla==total_plantillas[i].identificador_plantilla+1);
         }
-      }
-    }while(total_plantillas[i+1].identificador_plantilla==total_plantillas[i].identificador_plantilla+1);
-  }
-  fclose(f_plantillas);
-  free(total_equipos);
+        fclose(f_plantillas);
+        free(total_equipos);
 }

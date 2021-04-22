@@ -103,8 +103,6 @@ void equipo(int x)
 								printf(" ");
 							i=0;
 							break;
-						default:
-							break;
 						}
 
 						i2++;

@@ -2,7 +2,7 @@
 FILE *f_equipos, *f_configuracion, *f_usuario, *f_futbolista, *f_plantillas, *f_jugadores_plantilla;
 
 
-void limpiar(char *string)
+void limpiar(char *string)                       //convierte todos los caracteres de una string a un espacio, asi la deja en blanco
 {
         int i;
         for(i=0; string[i]!='\0'; i++)
@@ -11,7 +11,7 @@ void limpiar(char *string)
         }
 }
 
-int contar_lineas(FILE *f)
+int contar_lineas(FILE *f)                   //cuenta las lineas que tiene un fichero
 {
         char c;
         int cuenta=0;
@@ -27,7 +27,7 @@ int contar_lineas(FILE *f)
 }
 
 
-void carga_equipos()
+void carga_equipos()                          //carga el fichero de equipos en su correspondiente estructura
 {
         int i, j;
         char letra, cad_aux[21];
@@ -75,7 +75,7 @@ void carga_equipos()
 }
 
 
-void carga_configuracion()
+void carga_configuracion()                   //carga el fichero configuracion en su correspondiente estructura
 {
         int i, j;
         char letra, cad_aux[31];
@@ -126,7 +126,7 @@ void carga_configuracion()
 }
 
 
-void carga_usuario()
+void carga_usuario()                             //carga el fichero usuario en su correspondiente estructura
 {
         int i, j;
         char cad_n_usuario[21], cad_contra[9], cad_usuario[6], letra;
@@ -211,7 +211,7 @@ void carga_usuario()
 }
 
 
-void carga_futbolistas()
+void carga_futbolistas()                     //carga el fichero futbolista en su correspondiente estructura
 {
         int i, j;
         char aux[21], letra;
@@ -309,7 +309,7 @@ void carga_futbolistas()
         fclose(f_futbolista);
 }
 
-void carga_plantillas()
+void carga_plantillas()                    //carga el fichero plantillas en su correspondiente estructura
 {
         int i, j, k;
         char cad_aux[31], letra;
@@ -407,7 +407,7 @@ void carga_plantillas()
         fclose(f_plantillas);
 }
 
-void descarga_configuracion()
+void descarga_configuracion()                         //devuelve los valores de la estructura de configuracion a su fichero
 {
         f_configuracion=fopen("configuracion.txt","w");
         if(f_configuracion==NULL)
@@ -426,7 +426,7 @@ void descarga_configuracion()
         free(toda_config);
 }
 
-void descarga_usuario()
+void descarga_usuario()                      //devuelve los valores de la estructura de usuario a su fichero
 {
         f_usuario=fopen("usuarios.txt","w");
         if(f_usuario==NULL)
@@ -445,7 +445,7 @@ void descarga_usuario()
         free(total_usuarios);
 }
 
-void descarga_futbolistas()
+void descarga_futbolistas()           //devuelve los valores de la estructura de futbolistas a su fichero
 {
         f_futbolista=fopen("futbolistas.txt", "w");
         if(f_futbolista==NULL)
@@ -464,7 +464,7 @@ void descarga_futbolistas()
         free(total_futbolistas);
 }
 
-void descarga_equipos()
+void descarga_equipos()                //devuelve los valores de la estructura de equipos a su fichero
 {
         f_equipos=fopen("equipos.txt", "w");
         if(f_equipos==NULL)
@@ -484,7 +484,7 @@ void descarga_equipos()
 }
 
 
-void descarga_plantillas()
+void descarga_plantillas()           // devuelve los valores de la estructura de plantillas a su fichero
 {
         f_plantillas=fopen("Plantillas.txt", "w");
         if(f_plantillas==NULL)
@@ -496,9 +496,11 @@ void descarga_plantillas()
                 int i=-1, j, cuenta=0;
                 do{
                         i++;
+                        cuenta=0;
                         fprintf(f_plantillas,"$d-%d-%s-%d-%d",total_plantillas[i].identificador_prop_plantilla, total_plantillas[i].identificador_plantilla, total_plantillas[i].nombre_plantilla, total_plantillas[i].presupuesto, total_plantillas[i].puntuacion_plantilla);
                         for(j=0; j<11; j++)
                         {
+
                                 fprintf(f_plantillas,"$d", total_plantillas[i].jugadores[j]);
                                 if(cuenta<10)
                                 {

@@ -9,9 +9,6 @@
 
 FILE *fichero;
 
-int numero_plantillas(int );
-void equipo(int );
-
 int numero_plantillas(int x)
 {
 	int i, num=0;
@@ -27,7 +24,7 @@ int numero_plantillas(int x)
 	return num;
 }
 
-void equipo(int x)
+void equipos(int x)
 {
 
 

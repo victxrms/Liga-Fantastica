@@ -11,3 +11,6 @@ typedef struct{
 	int puntuacion_plantilla;
 	int jugadores[11];
 }plantilla;
+
+int numero_plantillas(int );
+void equipos(int );

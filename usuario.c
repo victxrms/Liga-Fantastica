@@ -5,9 +5,6 @@
 #include "configuracion.h"
 
 
-void configuracion ();
-void equipo (int );
-
 void usuario(){
 
         int reg, useropt, regyes, i=1, j=1, val1, val2, valreg1, valreg2, ntotal, jugedit;
@@ -80,7 +77,7 @@ void usuario(){
                                                                                                 //En el caso de ser usuario a equipo, de ser cronista se ejecuta el case 2  permitiendo ejecutar la
           case 01: {                                                                            //funcion del cronista, editando los futbolistas, y en el caso de ser admin se pasa a configuracion.
             printf ("Eres usuario, escribe un mensaje al administrador si no es asi \n");
-            equipo (i);
+            equipos (i);
 
             }
 

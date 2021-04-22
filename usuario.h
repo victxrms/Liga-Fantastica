@@ -5,3 +5,6 @@ typedef struct{
 	char user[9];
 	char contrasena[9];
 } usuarios;
+
+void configuracion ();
+void equipos (int );

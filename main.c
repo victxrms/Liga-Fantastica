@@ -4,12 +4,21 @@
 #include "carga.h"
 
 void usuario ();
-int carga ();
+void carga_equipos();
+void carga_configuracion();
+void carga_usuario();
+void carga_futbolistas();
+void carga_plantillas();
 
 int main (){
 
-  int carga ();
-  void usuario ();
+carga_equipos();
+carga_configuracion();
+carga_usuario();
+carga_futbolistas();
+carga_plantillas();
+usuario ();
+
 
   printf ("\t\tGracias por jugar Liga Fantastica\n");
 

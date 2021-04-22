@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "usuario.h"
+#include "carga.h"
 #include "futbolista.h"
 #include "configuracion.h"
 
@@ -17,7 +18,7 @@ void usuario(){
 
         char userinp[9], contrinp[9], usertemp[9], newuser[9], newcontr[9];
 
-        ntotal = usuario_tot->numero_total;
+        ntotal = lineas_usuarios;
 
         printf ("\t\t   Bienvenido a la Liga Fantastica\n");                    // Printea el titulo
         printf ("\t\t------------------------------------\n");

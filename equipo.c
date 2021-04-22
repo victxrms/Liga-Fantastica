@@ -54,16 +54,16 @@ void equipo(int x)
 			{
 				printf("Como quieres que se llame la nueva plantilla? (sin espacios, max 21 caracteres) --> ");
 
-                fichero=fopen("plantillas .txt","r");
+				fichero=fopen("plantillas .txt","r");
 				y=contar_lineas(fichero);
-                fclose(fichero);
+				fclose(fichero);
 
-                total_plantillas=(plantilla *)realloc(total_plantillas, (y+1)*sizeof(plantilla));
+				total_plantillas=(plantilla *)realloc(total_plantillas, (y+1)*sizeof(plantilla));
 
-                fflush(stdin);
-                scanf("%s", &total_plantillas.nombre_plantilla);
+				fflush(stdin);
+				scanf("%s", &total_plantillas.nombre_plantilla);
 
-                total_plantillas.identificador_plantilla=y+1;
+				total_plantillas.identificador_plantilla=y+1;
 				total_plantillas.identificador_prop_plantilla=x;
 
 				i=1;
@@ -198,7 +198,7 @@ void equipo(int x)
 				fflush(stdin);
 				scanf("%i", &menu2);
 
-                if(menu2!=1&&menu2!=2)
+				if(menu2!=1&&menu2!=2)
 					printf("Comando no valido");
 			}while(menu1!=1&&menu2!=2);
 
@@ -236,22 +236,24 @@ void equipo(int x)
 				fflush(stdin);
 				scanf("%i", &editar);
 
-                for(i=0; i<y; i++)
-    			{
-                    if(total_plantillas[i].identificador_prop_plantilla==x&&total_plantillas[i].identificador_plantilla==editar)
-    				{
-                        comp=1;
-                        printf("Como quiere que pase a llamarse esta plantilla? (sin espacios, max 21 caracteres) --> ");
-                        limpiar(total_plantillas[i].nombre_plantilla);
-                        fflush(stdin);
-                        scanf("%s", &total_plantillas[i].nombre_plantilla);
-                    }
-    			}
-                if(comp=0)
-                    printf("Plantilla inexistente o no es suya.\n");
-
-                comp=0;
-                printf("Plantilla renombrada correctamente.\n");
+				for(i=0; i<y; i++)
+				{
+					if(total_plantillas[i].identificador_prop_plantilla==x&&total_plantillas[i].identificador_plantilla==editar)
+					{
+						comp=1;
+						printf("Como quiere que pase a llamarse esta plantilla? (sin espacios, max 21 caracteres) --> ");
+						limpiar(total_plantillas[i].nombre_plantilla);
+						fflush(stdin);
+						scanf("%s", &total_plantillas[i].nombre_plantilla);
+					}
+				}
+				if(comp==0)
+					printf("Plantilla inexistente o no es suya.\n");
+				else
+				{
+					comp=0;
+					printf("Plantilla renombrada correctamente.\n");
+				}
 				break;
 
 			default:
@@ -276,7 +278,7 @@ void equipo(int x)
 
 			for(i=0; i<y; i++)
 			{
-				if(bucle=1)
+				if(bucle==1)
 				{
 					total_plantillas[i].identificador_plantilla=total_plantillas[i].identificador_plantilla-1;
 					total_plantillas[i]=total_plantillas[i-1];
@@ -284,12 +286,14 @@ void equipo(int x)
 				if(total_plantillas[i].identificador_prop_plantilla==x&&total_plantillas[i].identificador_plantilla==borrar)
 					bucle=1;
 			}
-            if(bucle=0)
-                printf("Plantilla inexistente o no es suya.\n");
-			total_plantillas=(plantilla *)realloc(total_plantillas, (y-1)*sizeof(plantilla));
-			bucle=0;
-
-			printf("Su plantilla ha sido borrada correctamente.\n");
+			if(bucle==0)
+				printf("Plantilla inexistente o no es suya.\n");
+			else
+			{
+				total_plantillas=(plantilla *)realloc(total_plantillas, (y-1)*sizeof(plantilla));
+				bucle=0;
+				printf("Su plantilla ha sido borrada correctamente.\n");
+			}
 			break;
 
 		default:
